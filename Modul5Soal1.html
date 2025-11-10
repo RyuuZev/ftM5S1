@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowchart dan Program MaxBilangan</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-align: center;
+    background: #f8fafc;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: #0d6efd;
+    color: white;
+    padding: 20px;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  .flowchart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+  }
+
+  .box {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 15px 30px;
+    margin: 15px;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    width: 260px;
+  }
+
+  .arrow {
+    font-size: 28px;
+    color: #555;
+  }
+
+  .terminator {
+    background-color: #c2e7ff;
+  }
+
+  .process {
+    background-color: #fef3bd;
+  }
+
+  .input {
+    background-color: #d6f5d6;
+  }
+
+  .output {
+    background-color: #d0c2ff;
+  }
+
+  .section {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  input {
+    width: 60px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  button {
+    padding: 8px 18px;
+    margin-top: 10px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0b5ed7;
+  }
+
+  pre {
+    text-align: left;
+    background: #f0f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f1f1f1;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Flowchart & Penerapan Program MaxBilangan</h1>
+</header>
+
+<section class="flowchart">
+  <div class="box terminator">Mulai</div>
+  <div class="arrow">⬇️</div>
+  <div class="box input">Input a, b, c, d</div>
+  <div class="arrow">⬇️</div>
+  <div class="box process">Hitung hasil = max(a, b, c, d)</div>
+  <div class="arrow">⬇️</div>
+  <div class="box output">Tampilkan hasil</div>
+  <div class="arrow">⬇️</div>
+  <div class="box terminator">Selesai</div>
+</section>
+
+<section class="section">
+  <h2>💻 Penerapan Program (Simulasi)</h2>
+  <p>Masukkan empat angka, lalu klik <b>Jalankan</b> untuk melihat bilangan terbesar:</p>
+  
+  <input type="number" id="a" placeholder="a">
+  <input type="number" id="b" placeholder="b">
+  <input type="number" id="c" placeholder="c">
+  <input type="number" id="d" placeholder="d"><br>
+  <button onclick="hitung()">Jalankan</button>
+
+  <p id="output"></p>
+</section>
+
+<section class="section">
+  <h2>🧠 Kode Program Asli (Python)</h2>
+  <pre><code>def MaxBilangan(a, b, c, d):
+    return max(a, b, c, d)
+
+a, b, c, d = map(int, input().split())
+hasil = MaxBilangan(a, b, c, d)
+print(hasil)
+</code></pre>
+</section>
+
+<footer>
+  © 2025 Flowchart MaxBilangan
+</footer>
+
+<script>
+function hitung() {
+  const a = parseFloat(document.getElementById('a').value);
+  const b = parseFloat(document.getElementById('b').value);
+  const c = parseFloat(document.getElementById('c').value);
+  const d = parseFloat(document.getElementById('d').value);
+
+  if (isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d)) {
+    document.getElementById('output').innerHTML = 
+      "<span style='color:red;'>⚠️ Masukkan semua angka terlebih dahulu!</span>";
+    return;
+  }
+
+  const hasil = Math.max(a, b, c, d);
+  document.getElementById('output').innerHTML = 
+    `<b>Bilangan terbesar adalah:</b> ${hasil}`;
+}
+</script>
+
+</body>
+</html>
